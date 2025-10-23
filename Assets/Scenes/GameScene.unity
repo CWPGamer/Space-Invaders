@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3213,7 +3212,7 @@ Transform:
   m_GameObject: {fileID: 617410804}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.0208335, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4367,6 +4366,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4705613389581170566, guid: 84eef85c4ce0a6d468d0b5c4b2fb5b4a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4705613389581170566, guid: 84eef85c4ce0a6d468d0b5c4b2fb5b4a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 481129878}
+    - target: {fileID: 4705613389581170566, guid: 84eef85c4ce0a6d468d0b5c4b2fb5b4a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadLevel
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5233,8 +5244,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1035912914}
   - component: {fileID: 1035912913}
+  - component: {fileID: 1035912917}
   - component: {fileID: 1035912915}
-  - component: {fileID: 1035912916}
+  - component: {fileID: 1035912918}
   m_Layer: 0
   m_Name: Earth
   m_TagString: Earth
@@ -5338,7 +5350,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -5354,7 +5366,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1035912916
+--- !u!50 &1035912917
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035912912}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1035912918
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5440,6 +5479,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1224601121}
     m_Modifications:
+    - target: {fileID: 2360024759852480145, guid: 49706a0ec536b48459d7d3ef87681db8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 481129878}
+    - target: {fileID: 2360024759852480145, guid: 49706a0ec536b48459d7d3ef87681db8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExitGame
+      objectReference: {fileID: 0}
     - target: {fileID: 4505079912698881197, guid: 49706a0ec536b48459d7d3ef87681db8, type: 3}
       propertyPath: m_Name
       value: ExitButton
@@ -5688,7 +5735,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1224601121
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5702,8 +5749,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 888585928}
-  - {fileID: 853686009}
   - {fileID: 1883807123}
+  - {fileID: 853686009}
   - {fileID: 1087968706}
   m_Father: {fileID: 1229470679}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7964,6 +8011,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7477808749118583560, guid: 2eed609d5cba349458b2b2c5baba61e1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8587,6 +8638,14 @@ PrefabInstance:
     - target: {fileID: 2623054050227811705, guid: 825cf94d1f2689a47a6537e91d8d2185, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7476368090968264180, guid: 825cf94d1f2689a47a6537e91d8d2185, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 481129878}
+    - target: {fileID: 7476368090968264180, guid: 825cf94d1f2689a47a6537e91d8d2185, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartLevel
       objectReference: {fileID: 0}
     - target: {fileID: 8974993885686489024, guid: 825cf94d1f2689a47a6537e91d8d2185, type: 3}
       propertyPath: m_Name
@@ -9864,9 +9923,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7751738729095640278, guid: 5bce4dde8903f944ba1ef8938d9f0b05, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127808843741019125, guid: 5bce4dde8903f944ba1ef8938d9f0b05, type: 3}
+      propertyPath: _attackSpeed
+      value: 0.325
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127808843741019125, guid: 5bce4dde8903f944ba1ef8938d9f0b05, type: 3}
+      propertyPath: _attackCooldown
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 9145817404062174830, guid: 5bce4dde8903f944ba1ef8938d9f0b05, type: 3}
       propertyPath: m_Name
       value: PlayerShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 9145817404062174830, guid: 5bce4dde8903f944ba1ef8938d9f0b05, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

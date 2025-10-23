@@ -57,8 +57,8 @@ GameObject:
   - component: {fileID: 947662808274977682}
   - component: {fileID: 6564994717463398116}
   - component: {fileID: 2132288193857560611}
-  - component: {fileID: 2765266509475307251}
   - component: {fileID: 6951428186003896718}
+  - component: {fileID: 8169319754510444499}
   m_Layer: 0
   m_Name: Legs
   m_TagString: Enemy
@@ -159,27 +159,6 @@ MonoBehaviour:
   _maxAttackSpeed: 5
   score: 25
   _invulnerableTime: 1
---- !u!95 &2765266509475307251
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9171388948430039158}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f64f671696736a542b3d77be0683b2d4, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!61 &6951428186003896718
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -209,7 +188,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.000022411346}
@@ -225,3 +204,30 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5074333, y: 0.38985974}
   m_EdgeRadius: 0
+--- !u!50 &8169319754510444499
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9171388948430039158}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

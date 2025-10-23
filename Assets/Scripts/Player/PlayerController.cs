@@ -4,7 +4,7 @@ using UnityEngine;
 
 /*
     This player script handles mechanics such as player movement,
-    shooting, detecting input, and taking damage
+    shooting, detecting input and collisions with enemy bullets and enemies.
 */
 
 public class PlayerController : Player
@@ -15,7 +15,7 @@ public class PlayerController : Player
     [SerializeField] private float _moveSpeed = 5f;
     private Vector2 _movement;
 
-    [SerializeField] private float _attackSpeed = 0.75f;
+    [SerializeField] private float _attackCooldown = 0.75f;
     private float attackTimer = 0f;
     private float hitTimer = 0f;
 
@@ -30,7 +30,7 @@ public class PlayerController : Player
     // Update is called once per frame
     void Update()
     {
-        if (playerInput)
+        if (playerInput && !GameManager.Instance.IsGamePaused())
         {
             ReadInput();
             _movement = new Vector2(_xInput * _moveSpeed, rb.velocity.y);
@@ -53,7 +53,7 @@ public class PlayerController : Player
     {
         _xInput = Input.GetAxisRaw("Horizontal") * _moveSpeed;
 
-        if (Input.GetButton("Shoot") && attackTimer >= _attackSpeed)
+        if (Input.GetButton("Shoot") && attackTimer >= _attackCooldown)
         {
             bulletSpawner.SpawnBullet();
             AudioManager.Instance.PlayShoot();

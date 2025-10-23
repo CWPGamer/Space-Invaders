@@ -9,16 +9,17 @@ public class Earth : MonoBehaviour
     void Start()
     {
         touchedEarth = false;
+        Debug.Log($"touchedEarth = {touchedEarth}");
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Earth hit by enemy");
             touchedEarth = true;
+            Debug.Log($"touchedEarth = {touchedEarth}");
             GameManager.Instance.GameOver();
         }
     }
-
 }

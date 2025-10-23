@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Threading;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -77,7 +76,7 @@ public class Enemy : MonoBehaviour
 
                 yield return new WaitForSeconds(_moveInterval);
             }
-            
+
 
             if (gameObject.name != "Mothership")
             {
@@ -105,7 +104,7 @@ public class Enemy : MonoBehaviour
             yield return new WaitForSeconds(0.15f);
             sr.enabled = true;
             yield return new WaitForSeconds(0.15f);
-        }while (_invulnerable);
+        } while (_invulnerable);
     }
 
     IEnumerator ShootBullet()
@@ -120,7 +119,7 @@ public class Enemy : MonoBehaviour
 
     void TakeLife()
     {
-        hitPoints = hitPoints > 0 ? hitPoints-1 : 0;
+        hitPoints = hitPoints > 0 ? hitPoints - 1 : 0;
         if (hitPoints > 0)
         {
             _invulnerable = true;
@@ -137,21 +136,18 @@ public class Enemy : MonoBehaviour
         if (gameObject.name != "Mothership")
         {
             enemyCount--;
-            Debug.Log($"{enemyCount} Enemies Left");
+            //Debug.Log($"{enemyCount} Enemies Left");
         }
         GameManager.Instance.PlayerScores(score);
         AudioManager.Instance.PlayDestroyEnemy();
         Destroy(gameObject);
     }
 
-    void OnTriggerEnter2D (Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Bullet_Player"))
+        if (collision.gameObject.CompareTag("Bullet_Player") && !_invulnerable)
         {
-            if (!_invulnerable)
-            {
-                TakeLife();
-            }
+            TakeLife();
         }
     }
 

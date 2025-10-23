@@ -73,8 +73,6 @@ public class AudioManager : MonoBehaviour
     public void IncreaseMusicSpeed()
     {
         cycleSpeed = cycleSpeed > 0.2f ? cycleSpeed - 0.1f : 0.1f;
-
-        Debug.Log($"Cycle speed: {cycleSpeed}");
     }
 
     public void PlayPlayerHurt()

@@ -100,6 +100,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public bool IsGamePaused(){ return _pauseGame; }
+
     public void PlayerScores(int score)
     {
         SetPlayerScore(playerScore + score);
